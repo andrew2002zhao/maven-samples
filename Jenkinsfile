@@ -1,9 +1,5 @@
 pipeline {
   agent any
-  tools { 
-      maven 'default_maven' 
-      jdk 'java-17-openjdk' 
-  }
   stages {
     stage('check out') {
       steps {
@@ -13,9 +9,17 @@ pipeline {
 
     stage('run') {
       steps {
-        sh 'mvn verify'
+        sh '''mvn test
+'''
+        sh '''mvn verify
+'''
+        sh 'mvn clean'
       }
     }
 
+  }
+  tools {
+    maven 'default_maven'
+    jdk 'java-17-openjdk'
   }
 }
