@@ -1,13 +1,13 @@
 pipeline {
   agent any
   tools { 
-      maven 'DHT_MVN' 
-      jdk 'DHT_SENSE' 
+      maven 'default_maven' 
+      jdk 'java-17-openjdk' 
   }
   stages {
     stage('check out') {
       steps {
-        git(url: 'https://github.com/dhetong/maven-samples-A6.git', branch: 'master')
+        git(url: 'https://github.com/andrew2002zhao/maven-samples.git', branch: 'master')
       }
     }
 
